@@ -14,7 +14,7 @@ public class Item {
     }
 
     public void Item(int id, String name) {
-        Item(id);
+        this.id = id;
         this.name = name;
     }
 
