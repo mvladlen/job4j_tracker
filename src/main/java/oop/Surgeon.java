@@ -3,8 +3,8 @@ package oop;
 public class Surgeon extends Doctor {
     String specialisation;
 
-    public void Dentist(String name, String surname, String education, String birthday, String specialisation) {
-        Doctor(name, surname, education, birthday, specialisation);
+    public Surgeon(String name, String surname, String education, String birthday, String specialisation) {
+        super(name, surname, education, birthday, specialisation);
     }
 
     public void cut() {
