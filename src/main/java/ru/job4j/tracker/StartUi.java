@@ -12,5 +12,9 @@ public class StartUi {
         System.out.println(formattedCreateDate);
         System.out.println(unit.toString());
 
+        Tracker tracker = new Tracker();
+        tracker.add(unit);
+        Item found = tracker.findById(1);
+        System.out.println(found.toString());
     }
 }
