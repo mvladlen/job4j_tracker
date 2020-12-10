@@ -23,8 +23,7 @@ public class Tracker {
                 filled++;
             }
         }
-        clearedItems = Arrays.copyOf(clearedItems, filled);
-        return clearedItems;
+        return Arrays.copyOf(clearedItems, filled);
     }
 
     public Item[] findByName(String key) {
