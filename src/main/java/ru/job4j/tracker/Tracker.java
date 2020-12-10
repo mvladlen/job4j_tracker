@@ -74,6 +74,7 @@ public class Tracker {
             return false;
         }
         System.arraycopy(items, index, items, index + 1, size - index - 1);
+        items[size - 1] = null;
         size--;
         return true;
     }
