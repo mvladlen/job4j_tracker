@@ -20,6 +20,12 @@ public class Tracker {
         return clearedItems;
     }
 
+    public void showAll() {
+        for (int i = 0; i < size; i++) {
+            System.out.println(items[i].toString());
+        }
+    }
+
     public Item[] findByName(String key) {
         Item[] clearedItems = new Item[size];
         int filled = 0;
