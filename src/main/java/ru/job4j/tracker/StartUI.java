@@ -54,25 +54,16 @@ public class StartUI {
         } else System.out.println("Заявки с таким name не найдены");
     }
 
-    public void init(Input input, Tracker tracker) {
+    public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
             showMenu();
             int select = Integer.parseInt(input.askStr("Select: "));
-            switch (select) {
-                case 0 -> createItem(input, tracker);
-                case 1 -> {
-                    System.out.println("=== List of Items ===");
-                    tracker.showAll();
-                }
-                case 2 -> replaceItem(input, tracker);
-                case 3 -> deleteItem(input, tracker);
-                case 4 -> findItemById(input, tracker);
-                case 5 -> findItemByName(input, tracker);
-                case 6 -> run = false;
-            }
+            actions[select].name();
+            run = actions[select].execute(input, tracker);
         }
     }
+
 
     private static void showMenu() {
         System.out.printf("%n Menu. %n" +
@@ -89,6 +80,9 @@ public class StartUI {
     public static void main(String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
-        new StartUI().init(input, tracker);
+        UserAction[] actions = {
+                new CreateAction(), new ShowAllAction(), new ReplaceAction(), new DeleteAction(), new FindIdAction(), new FindNameAction(), new ExitAction()
+        };
+        new StartUI().init(input, tracker, actions);
     }
 }
