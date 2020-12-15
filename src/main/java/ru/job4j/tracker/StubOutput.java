@@ -17,4 +17,9 @@ public class StubOutput implements Output {
     public String toString() {
         return buffer.toString();
     }
+
+    public void flush() {
+        buffer.setLength(0);
+    }
+
 }

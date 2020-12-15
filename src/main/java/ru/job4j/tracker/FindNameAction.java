@@ -18,8 +18,8 @@ public class FindNameAction implements UserAction {
         String name = input.askStr("Enter name: ");
         Item[] items = tracker.findByName(name);
         if (items.length > 0) {
-            for (Item item : items) System.out.println(item);
-        } else System.out.println("Заявки с таким name не найдены");
+            for (Item item : items) out.println(item);
+        } else out.println("Заявки с таким name не найдены");
         return true;
     }
 }
