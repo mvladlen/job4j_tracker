@@ -4,8 +4,7 @@ public class DeleteAction implements UserAction {
 
     @Override
     public String name() {
-        System.out.println("=== Delete an Item ====");
-        return null;
+        return "=== Delete an Item ====";
     }
 
     @Override

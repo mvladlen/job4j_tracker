@@ -4,8 +4,7 @@ public class FindIdAction implements UserAction {
 
     @Override
     public String name() {
-        System.out.println("=== Find an Item by Id ===");
-        return null;
+        return "=== Find an Item by Id ===";
     }
 
     @Override

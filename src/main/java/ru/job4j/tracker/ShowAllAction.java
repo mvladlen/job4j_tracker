@@ -4,8 +4,7 @@ public class ShowAllAction implements UserAction {
 
     @Override
     public String name() {
-        System.out.println("=== List of Items ===");
-        return null;
+        return "=== List of Items ===";
     }
 
     @Override

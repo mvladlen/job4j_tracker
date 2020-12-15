@@ -4,8 +4,7 @@ public class FindNameAction implements UserAction {
 
     @Override
     public String name() {
-        System.out.println("=== Find an Item by name ===");
-        return null;
+        return "=== Find an Item by name ===";
     }
 
     @Override

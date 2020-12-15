@@ -57,7 +57,7 @@ public class StartUI {
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
-            showMenu();
+            showMenu(actions);
             int select = Integer.parseInt(input.askStr("Select: "));
             actions[select].name();
             run = actions[select].execute(input, tracker);
@@ -65,15 +65,11 @@ public class StartUI {
     }
 
 
-    private static void showMenu() {
-        System.out.printf("%n Menu. %n" +
-                "0. Add new Item %n" +
-                "1. Show all items %n" +
-                "2. Edit item %n" +
-                "3. Delete item %n" +
-                "4. Find item by Id %n" +
-                "5. Find items by name %n" +
-                "6. Exit Program %n");
+    private static void showMenu(UserAction[] actions) {
+        System.out.println("Menu.");
+        for (int index = 0; index < actions.length; index++) {
+            System.out.println(index + ". " + actions[index].name());
+        }
     }
 
 
