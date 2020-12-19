@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class ValidateInputTest {
 
@@ -39,8 +40,7 @@ public class ValidateInputTest {
         int selected = input.askInt("Enter menu:");
         String name = input.askStr("Enter name:");
         int id = input.askInt("Enter menu:");
-
-        assertThat(selected, is(1));
+        assertTrue(selected == 3 && id == 2 && name == "Vasya");
     }
 
     @Test
