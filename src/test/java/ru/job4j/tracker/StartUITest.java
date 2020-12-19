@@ -81,11 +81,8 @@ public class StartUITest {
 
         UserAction action = new FindNameAction(out);
         action.execute(in, tracker);
-        StringBuffer buffer = new StringBuffer();
-        buffer.append(out);
-        buffer.setLength(30);
-        assertThat(buffer.toString(), is(
-                "Item{id=1, name='Bug', created"));
+        String expected = item.toString() + "\r\n";
+        assertThat(expected, is(out.toString()));
     }
 
     @Test
