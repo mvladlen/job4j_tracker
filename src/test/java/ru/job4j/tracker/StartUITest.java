@@ -72,49 +72,73 @@ public class StartUITest {
 
     @Test
     public void whenFindByName() {
-        Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[]{"Bug"}
-        );
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Bug"));
-
-        UserAction action = new FindNameAction(out);
-        action.execute(in, tracker);
-        String expected = item.toString() + "\r\n";
-        assertThat(expected, is(out.toString()));
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[]{"0", item.getName(), "1"}
+        );
+        UserAction[] actions = {
+                new FindNameAction(out), new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu." + ln
+                        + "0. === Find an Item by name ===" + ln
+                        + "1. Exit" + ln
+                        + item + ln
+                        + "Menu." + ln
+                        + "0. === Find an Item by name ===" + ln
+                        + "1. Exit" + ln + ""));
     }
 
     @Test
     public void whenFindById() {
-        Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[]{"1"}
-        );
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Bug"));
-
-        UserAction action = new FindIdAction(out);
-        action.execute(in, tracker);
-        StringBuffer buffer = new StringBuffer();
-        buffer.append(out);
-        buffer.setLength(30);
-        assertThat(buffer.toString(), is(
-                "Item{id=1, name='Bug', created"));
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[]{"0", String.valueOf(item.getId()), "1"}
+        );
+        UserAction[] actions = {
+                new FindIdAction(out), new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu." + ln
+                        + "0. === Find an Item by Id ===" + ln
+                        + "1. Exit" + ln
+                        + item + ln
+                        + "Menu." + ln
+                        + "0. === Find an Item by Id ===" + ln
+                        + "1. Exit" + ln + ""));
     }
 
     @Test
     public void whenFindAll() {
+        Tracker tracker = new Tracker();
+        Item item1 = tracker.add(new Item("Bug"));
+        Item item2 = tracker.add(new Item("Error"));
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[]{"1"}
+                new String[]{"0", "1"}
         );
-        Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Bug"));
-        Item[] items = tracker.findAll();
-
-        assertThat(items[0].toString().substring(0, 30), is(
-                "Item{id=1, name='Bug', created"));
+        UserAction[] actions = {
+                new ShowAllAction(out), new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu." + ln
+                        + "0. === List of Items ===" + ln
+                        + "1. Exit" + ln
+                        + item1 + ln
+                        + item2 + ln
+                        + "Menu." + ln
+                        + "0. === List of Items ===" + ln
+                        + "1. Exit" + ln + ""));
     }
 
     @Test
