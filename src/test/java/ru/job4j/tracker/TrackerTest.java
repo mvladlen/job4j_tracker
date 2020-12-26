@@ -41,4 +41,15 @@ public class TrackerTest {
         tracker.delete(id);
         assertThat(tracker.findById(id), is(nullValue()));
     }
+/*    @Test
+    public void whenAddNewItemThenTrackerHasSameItem() {
+        Tracker tracker = new Tracker();
+        tracker.add(new Item ("test"));
+        tracker.add(new Item ("abc"));
+        tracker.add(new Item ("cde"));
+        tracker.sort(item);
+
+        Item result = tracker.findById(item.getId());
+        assertThat(result.getName(), is(item.getName()));
+    }*/
 }
