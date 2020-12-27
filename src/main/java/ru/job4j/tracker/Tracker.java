@@ -44,10 +44,10 @@ public class Tracker {
 
     private int indexOf(int id) {
         for (int index = 0; index < items.size(); index++) {
-            if (items.iterator().next().getId() == id)
+            if (items.get(index).getId() == id) {
                 return index;
+            }
         }
-
         return -1;
     }
 
