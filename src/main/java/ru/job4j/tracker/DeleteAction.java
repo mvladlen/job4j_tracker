@@ -7,7 +7,6 @@ public class DeleteAction implements UserAction {
         this.out = out;
     }
 
-
     @Override
     public String name() {
         return "=== Delete an Item ====";

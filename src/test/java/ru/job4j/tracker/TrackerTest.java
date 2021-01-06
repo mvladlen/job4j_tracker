@@ -12,7 +12,6 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
 
-
 public class TrackerTest {
     @Test
     public void whenAddNewItem() {
@@ -61,7 +60,7 @@ public class TrackerTest {
     }*/
 
     @Test
-    public void SortItems() {
+    public void sortItems() {
         List<Item> items = Arrays.asList(
                 new Item(4, "Fix bugs"),
                 new Item(2, "Impl task"),
@@ -77,7 +76,7 @@ public class TrackerTest {
     }
 
     @Test
-    public void SortItemsReverse() {
+    public void sortItemsReverse() {
         List<Item> items = Arrays.asList(
                 new Item(4, "Fix bugs"),
                 new Item(2, "Impl task"),

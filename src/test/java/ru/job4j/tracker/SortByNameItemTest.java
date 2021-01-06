@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SortByNameItemTest {
     @Test
-    public void SortItems() {
+    public void sortItems() {
         List<Item> items = Arrays.asList(
                 new Item(4, "Fix bugs"),
                 new Item(2, "Impl task"),

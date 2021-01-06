@@ -10,7 +10,6 @@ public class ShowAllAction implements UserAction {
         this.out = out;
     }
 
-
     @Override
     public String name() {
         return "=== List of Items ===";
