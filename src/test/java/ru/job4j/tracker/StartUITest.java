@@ -58,7 +58,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0"}
         );
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         UserAction[] actions = {
                 new ExitAction(out)
         };
@@ -72,7 +72,7 @@ public class StartUITest {
 
     @Test
     public void whenFindByName() {
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         Item item = tracker.add(new Item("Bug"));
         Output out = new StubOutput();
         Input in = new StubInput(
@@ -95,7 +95,7 @@ public class StartUITest {
 
     @Test
     public void whenFindById() {
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         Item item = tracker.add(new Item("Bug"));
         Output out = new StubOutput();
         Input in = new StubInput(
@@ -118,7 +118,7 @@ public class StartUITest {
 
     @Test
     public void whenFindAll() {
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         Item item1 = tracker.add(new Item("Bug"));
         Item item2 = tracker.add(new Item("Error"));
         Output out = new StubOutput();
@@ -147,7 +147,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"1", "0" /* Пункты меню: неверный, верный.*/}
         );
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         UserAction[] actions = {
                 new ExitAction(out)
         };
