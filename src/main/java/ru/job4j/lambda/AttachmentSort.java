@@ -34,4 +34,9 @@ public class AttachmentSort {
         attachments.sort(comparatorByName);
         System.out.println(attachments);
     }
+
+    Comparator<Attachment> comparator = (left, right) -> {
+        System.out.println("compare - " + left.getSize() + " : " + right.getSize());
+        return Integer.compare(right.getSize(), left.getSize());
+    };
 }
