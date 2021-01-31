@@ -6,6 +6,7 @@ import java.util.List;
 
 public class AttachmentSort {
     public static void main(String[] args) {
+        testOut();
         List<Attachment> attachments = Arrays.asList(
                 new Attachment("image 1", 100),
                 new Attachment("image 2", 34),
@@ -18,7 +19,14 @@ public class AttachmentSort {
                 Attachment right = (Attachment) o2;
                 return left.getSize() - right.getSize();
             }
+
         };
+
+        Comparator<Attachment> comparator1 = (left, right) -> {
+            System.out.println("compare - " + left.getSize() + " : " + right.getSize());
+            return Integer.compare(right.getSize(), left.getSize());
+        };
+
 
         attachments.sort(comparator);
         System.out.println(attachments);
@@ -35,8 +43,17 @@ public class AttachmentSort {
         System.out.println(attachments);
     }
 
-    Comparator<Attachment> comparator = (left, right) -> {
-        System.out.println("compare - " + left.getSize() + " : " + right.getSize());
-        return Integer.compare(right.getSize(), left.getSize());
-    };
+    public static void testOut() {
+        String[] names = {
+                "Ivan", "Petr"
+        };
+
+        Comparator<String> lengthCmp = (left, right) -> {
+            System.out.println("execute comparator");
+            return left.length() - right.length();
+        };
+
+        Arrays.sort(names, lengthCmp);
+    }
+
 }
