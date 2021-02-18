@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class ProfileTest {
@@ -18,7 +18,7 @@ public class ProfileTest {
         profileList.add(new Profile(new Address("Ufa", "Lenin", 12, 51)));
         profileList.add(new Profile(new Address("Moscow", "Lenin", 12, 51)));
         profileList.add(new Profile(new Address("Perm", "Lenin", 12, 51)));
-        profileList.add(new Profile(new Address("Sochi", "Lenin", 12, 51)));
+        profileList.add(new Profile(new Address("Ufa", "Lenin", 12, 51)));
     }
 
     @Test
@@ -27,8 +27,20 @@ public class ProfileTest {
         addressesExpected.add(new Address("Ufa", "Lenin", 12, 51));
         addressesExpected.add(new Address("Moscow", "Lenin", 12, 51));
         addressesExpected.add(new Address("Perm", "Lenin", 12, 51));
-        addressesExpected.add(new Address("Sochi", "Lenin", 12, 51));
-        List<Address> addressesCollect = Profile.collect(profileList);
+        addressesExpected.add(new Address("Ufa", "Lenin", 12, 51));
+        List<Address> addressesCollect = Profiles.collect(profileList);
         assertThat(addressesCollect, is(addressesExpected));
     }
+
+    @Test
+    public void collectAddressDistinct() {
+        List<Address> addressesExpected = new ArrayList<>();
+        addressesExpected.add(new Address("Ufa", "Lenin", 12, 51));
+        addressesExpected.add(new Address("Moscow", "Lenin", 12, 51));
+        addressesExpected.add(new Address("Perm", "Lenin", 12, 51));
+        List<Address> addressesCollect = Profile.collectDistinct(profileList);
+        assertThat(addressesCollect, is(addressesExpected));
+    }
+
+
 }
