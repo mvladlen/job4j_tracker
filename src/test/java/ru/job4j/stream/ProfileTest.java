@@ -35,10 +35,10 @@ public class ProfileTest {
     @Test
     public void collectAddressDistinct() {
         List<Address> addressesExpected = new ArrayList<>();
-        addressesExpected.add(new Address("Ufa", "Lenin", 12, 51));
         addressesExpected.add(new Address("Moscow", "Lenin", 12, 51));
         addressesExpected.add(new Address("Perm", "Lenin", 12, 51));
-        List<Address> addressesCollect = Profile.collectDistinct(profileList);
+        addressesExpected.add(new Address("Ufa", "Lenin", 12, 51));
+        List<Address> addressesCollect = Profiles.collectDistinct(profileList);
         assertThat(addressesCollect, is(addressesExpected));
     }
 
