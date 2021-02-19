@@ -15,6 +15,7 @@ public class StudentsTest {
         students.add(new Student(10, "Surname1"));
         students.add(new Student(20, "Surname2"));
         students.add(new Student(30, "Surname3"));
+        students.add(new Student(30, "Surname3"));
         Map<String, Student> expected = new HashMap<>();
         expected.put(students.get(0).getSurname(), students.get(0));
         expected.put(students.get(1).getSurname(), students.get(1));
