@@ -6,6 +6,7 @@ import java.util.*;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
+import static ru.job4j.stream.Students.testMap;
 
 public class StudentsTest {
 
@@ -22,5 +23,14 @@ public class StudentsTest {
         expected.put(students.get(2).getSurname(), students.get(2));
         Map<String, Student> result = Students.studentMap(students);
         assertThat(result, is(expected));
+    }
+
+    @Test
+    public void MapingTest() {
+        Integer[][] array = {{1, 2}, {3, 4}, {5, 6}};
+        List<Integer> expexted = List.of(1, 2, 3, 4, 5, 6);
+        List<Integer> list = testMap(array);
+        System.out.println(list);
+        assertThat(list, is(expexted));
     }
 }

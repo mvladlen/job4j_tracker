@@ -11,14 +11,15 @@ public class Students {
     public static Map<String, Student> studentMap(ArrayList<Student> students) {
         return students.stream()
                 .collect(Collectors.toMap(Student::getSurname, student -> student, (o1, o2) -> o2));
+
+
     }
 
-    public static void main(String[] args) {
-        Integer[][] array = {{1, 2}, {3, 4}, {5, 6}};
-        List<Integer> list = Arrays.stream(array)
+    public static List<Integer> testMap(Integer[][] integers) {
+        return Arrays.stream(integers)
                 .flatMap(
                         Stream::of)
                 .collect(Collectors.toList());
-        System.out.println(list);
+
     }
 }
