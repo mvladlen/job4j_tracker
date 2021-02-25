@@ -16,15 +16,16 @@ public class SchoolTest {
 
     @Before
     public void setUp() {
-        students.add(new Student(10, "Surname1"));
-        students.add(new Student(20, "Surname2"));
-        students.add(new Student(30, "Surname3"));
-        students.add(new Student(40, "Surname4"));
-        students.add(new Student(50, "Surname5"));
-        students.add(new Student(60, "Surname6"));
-        students.add(new Student(70, "Surname7"));
-        students.add(new Student(80, "Surname8"));
-        students.add(new Student(90, "Surname9"));
+        students = List.of(
+                new Student(10, "Surname1"),
+                new Student(20, "Surname2"),
+                new Student(30, "Surname3"),
+                new Student(40, "Surname4"),
+                new Student(50, "Surname5"),
+                new Student(60, "Surname6"),
+                new Student(70, "Surname7"),
+                new Student(80, "Surname8"),
+                new Student(90, "Surname9"));
     }
 
     @Test
